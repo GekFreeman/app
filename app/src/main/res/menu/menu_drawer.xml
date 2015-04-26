@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="nerdlab.main.DrawerActivity">
 
+    <item android:id="@+id/search"
+        android:title="@string/action_search"
+        android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
+        app:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView" />
 
     <item android:id="@+id/action_compose"
         android:icon="@drawable/ic_add_circle_grey600_18dp"

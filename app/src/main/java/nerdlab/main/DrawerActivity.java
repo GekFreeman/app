@@ -1,6 +1,10 @@
 package nerdlab.main;
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,13 +13,17 @@ import android.os.Bundle;
 import android.app.ActionBar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewOverlay;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,13 +51,15 @@ public class DrawerActivity extends FragmentActivity{
 
     private DrawerAdapter drawerAdapter;
 
-
+    private FloatingActionsMenu actionMenu;
 
     private List<NavDrawerItem> navDrawerItems=new ArrayList<NavDrawerItem>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
+
+        handleIntent(getIntent());
         if(savedInstanceState==null){
             Log.d("TEST", "NULL");
             getSupportFragmentManager().beginTransaction().add(R.id.content, new FragmentParent()).commit();
@@ -81,6 +91,7 @@ public class DrawerActivity extends FragmentActivity{
             }
 
             public void onDrawerOpened(View drawerView) {
+                actionMenu.collapse();
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu();
             }
@@ -96,7 +107,7 @@ public class DrawerActivity extends FragmentActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                if(findViewById(R.id.action_a).getVisibility()==View.VISIBLE){
+                if (findViewById(R.id.action_a).getVisibility() == View.VISIBLE) {
                     findViewById(R.id.multiple_actions).performClick();
                 }
                 switch (position) {
@@ -105,8 +116,8 @@ public class DrawerActivity extends FragmentActivity{
                         mDrawerLayout.closeDrawer(mDrawerList);
                         break;
                     case 1:
-                        RelativeLayout relativeLayout=(RelativeLayout)mDrawerList.getAdapter().getView(position,null,null);
-                        TextView textView=(TextView)relativeLayout.getChildAt(2);
+                        RelativeLayout relativeLayout = (RelativeLayout) mDrawerList.getAdapter().getView(position, null, null);
+                        TextView textView = (TextView) relativeLayout.getChildAt(2);
                         textView.setTextAppearance(getApplicationContext(), R.style.boldText);
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new Fragment2()).commit();
                         mDrawerLayout.closeDrawer(mDrawerList);
@@ -117,32 +128,55 @@ public class DrawerActivity extends FragmentActivity{
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new FragmentParent()).commit();
                         mDrawerLayout.closeDrawer(mDrawerList);
                         break;
+                    case 3:
+                        mDrawerLayout.closeDrawer(mDrawerList);
+                        break;
+                    case 4:
+                        mDrawerLayout.closeDrawer(mDrawerList);
+                        break;
                 }
 
             }
         });
-        //FloatingActionButton actionC = new FloatingActionButton(getApplicationContext());
-        final View actionB = findViewById(R.id.action_b);
-        final View actionA=findViewById(R.id.action_a);
-//        actionC.setTitle("new activity");
-//        actionC.setColorPressed(R.color.orange);
-//        actionC.setColorPressed(R.color.orange_pressed);
-//        actionC.setIcon(R.drawable.ic_fab_star);
-//        actionC.setOnClickListener(new View.OnClickListener() {
+
+        actionMenu=(FloatingActionsMenu)findViewById(R.id.multiple_actions);
+//        FloatingActionsMenu.OnFloatingActionsMenuUpdateListener listener = new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
 //            @Override
-//            public void onClick(View v) {
-//                actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
-//                actionA.setVisibility(actionA.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
-//            }
-//        });
+//            public void onMenuExpanded() { }
+//
+//            @Override
+//            public void onMenuCollapsed() { }
+//        };
+//
+//        actionMenu.setOnFloatingActionsMenuUpdateListener(listener);
+        FloatingActionButton actionB = (FloatingActionButton )findViewById(R.id.action_b);
+        actionB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DrawerActivity.this, "Search", Toast.LENGTH_SHORT).show();
+                actionMenu.collapse();
+            }
+        });
+        FloatingActionButton actionA=(FloatingActionButton )findViewById(R.id.action_a);
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(DrawerActivity.this, "Post", Toast.LENGTH_SHORT).show();
                 showDialog();
+                actionMenu.collapse();
             }
         });
-       // ((FloatingActionsMenu) findViewById(R.id.multiple_actions)).addButton(actionC);
+//        actionMenu.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_UP) {
+//                    // Do what you want
+//                    Toast.makeText(DrawerActivity.this, "Touch", Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//                return true; // consume the event
+//            }
+//        });
     }
 
     private void showDialog()
@@ -159,16 +193,19 @@ public class DrawerActivity extends FragmentActivity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_drawer, menu);
-        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_drawer, menu);
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       // if(findViewById(R.id.action_a).getVisibility()==View.VISIBLE){
-            findViewById(R.id.multiple_actions).performClick();
-       // }
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -197,6 +234,27 @@ public class DrawerActivity extends FragmentActivity{
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @ Override
+    public void onBackPressed()
+    {
+            actionMenu.collapse();
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        //super.onNewIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            //use the query to search your data somehow
+        }
     }
 
     private void initNavItems(){

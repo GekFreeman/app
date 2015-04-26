@@ -14,22 +14,37 @@
         android:maxHeight="77dp"
         android:maxWidth="77dp"
         app:border_width="2dp"
-
         android:layout_centerVertical="true"
         app:border_color="#ffffff"/>
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="77dp"/>
-    <TextView
-       android:id="@+id/navDrawerTextView"
-        android:layout_centerVertical="true"
-        style="@style/Wrap"
-        android:layout_toRightOf="@+id/profile_image"
-        android:layout_marginLeft="7dp"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_medium"
-
+        android:layout_height="77dp"
         />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profile_image"
+        android:layout_centerVertical="true"
+        >
+        <TextView
+            android:id="@+id/navDrawerTextView"
+            style="@style/Wrap"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_medium"
+            />
+        <TextView
+            android:id="@+id/navDrawerProfile"
+            style="@style/Wrap"
+            android:layout_below="@+id/navDrawerTextView"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_medium"
+
+            />
+    </RelativeLayout>
+
     
 </RelativeLayout>
