@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+    <Button
+        android:id="@+id/cancleButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/cancel_icon"
+        android:padding="5dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/distribute_line_width"
+        android:background="#cccccc" />
+
+    <EditText
+        android:id="@+id/actionNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/action_name_editText"
+        android:inputType="text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textSize="@dimen/distribute_text_size" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/distribute_line_width"
+        android:background="#cccccc" />
+
+    <EditText
+        android:id="@+id/actionContentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="@string/action_content_editText"
+        android:inputType="textMultiLine"
+        android:maxLines="8"
+        android:minLines="5"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:scrollbars="vertical"
+        android:textSize="@dimen/distribute_text_size" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="@dimen/small_icon_width"
+            android:layout_height="@dimen/small_icon_height"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/picture_icon" />
+
+        <ImageView
+            android:layout_width="@dimen/small_icon_width"
+            android:layout_height="@dimen/small_icon_height"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/at_icon" />
+
+        <ImageView
+            android:layout_width="@dimen/small_icon_width"
+            android:layout_height="@dimen/small_icon_height"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/emoticon_icon" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/distribute_line_width"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="@dimen/small_icon_width"
+            android:layout_height="@dimen/small_icon_height"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/location_icon" />
+
+        <EditText
+            android:id="@+id/actionPlaceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="10"
+            android:hint="@string/action_place_editText"
+            android:inputType="text"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textSize="@dimen/distribute_text_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/distribute_line_width"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="@dimen/small_icon_width"
+            android:layout_height="@dimen/small_icon_height"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/clock_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/action_time_editText"
+            android:textSize="@dimen/distribute_text_size" />
+
+        <TextView
+            android:id="@+id/actionDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="10"
+            android:hint="@string/action_date_editText"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textSize="@dimen/distribute_text_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/distribute_line_width"
+        android:background="#cccccc" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.96"
+        android:calendarViewShown="false" 
+        android:visibility="gone"
+        />
+
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:background="#ffffff" />
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:background="@color/distribute_background_button"
+        android:padding="0dp"
+        android:text="@string/distribute_button"
+        android:textColor="@color/distribute_text_button"
+        android:textSize="25sp" />
+
+</LinearLayout>

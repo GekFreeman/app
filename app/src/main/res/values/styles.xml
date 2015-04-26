@@ -81,5 +81,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-
+    <style name="boldText">
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:color">#ffffff</item>
+    </style>
+    <style name="normalText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:color">#c0c0c0c0</item>
+    </style>
 </resources>

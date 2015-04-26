@@ -23,20 +23,19 @@ public class DrawerAdapter extends ArrayAdapter<NavDrawerItem>{
 	public View getView(int position,View convertView,ViewGroup parent){
 		NavDrawerItem navDrawerItem=getItem(position);
 		View view;
-		ViewHolder  viewHolder;
+		final ViewHolder  viewHolder;
 		if(convertView==null){
 			view=LayoutInflater.from(getContext()).inflate(resourced, null);
 			viewHolder=new ViewHolder();
 			viewHolder.drawerImage=(ImageView)view.findViewById(R.id.profile_image);
-			if(position==0){
-				viewHolder.drawerImage.getLayoutParams().height=377;
-				viewHolder.drawerImage.getLayoutParams().width=377;
-			}
-			//else {
-		//		viewHolder.drawerImage=(ImageView)view.findViewById(R.id.navDrawerImageView);
-
-		//	}
 			viewHolder.drawerText=(TextView)view.findViewById(R.id.navDrawerTextView);
+			viewHolder.drawerText.setTextAppearance(getContext(), R.style.normalText);
+			if(position==0){
+				viewHolder.drawerImage.getLayoutParams().height=213;
+				viewHolder.drawerImage.getLayoutParams().width=213;
+				viewHolder.drawerText.setTextAppearance(getContext(),R.style.boldText);
+			}
+
 			view.setTag(viewHolder);
 		}
 		else{
@@ -44,9 +43,8 @@ public class DrawerAdapter extends ArrayAdapter<NavDrawerItem>{
 			viewHolder = (ViewHolder) view.getTag();
 		}
 		viewHolder.drawerImage.setImageResource(navDrawerItem.getImageId());
-
-
 		viewHolder.drawerText.setText(navDrawerItem.getName());
+
 		return view;
 	}
 	class ViewHolder {

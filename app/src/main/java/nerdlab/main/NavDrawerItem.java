@@ -16,4 +16,5 @@ public class NavDrawerItem
 	public int getImageId() {
 		return icon;
 	}
+
 }

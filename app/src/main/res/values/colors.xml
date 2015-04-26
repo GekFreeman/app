@@ -6,8 +6,8 @@
     <color name="drawer_arrow_second_color">#e8a25d</color>
 
     <!-- FloatingButton     -->
-    <color name="orange">#ffdf9936</color>
-    <color name="orange_pressed">#fff1a53a</color>
+    <color name="orange">#fcca59</color>
+    <color name="orange_pressed">#ecaa0b</color>
 
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#e5e5e5</color>
@@ -36,5 +36,8 @@
     <color name="divider3">#FFFFFF</color>
     <color name="loading">#99000000</color>
      <!--      weibo project    done-->
+
+    <color name = "distribute_text_button">#FFFFFF</color>
+    <color name = "distribute_background_button">#FFCC66</color>
     
 </resources>

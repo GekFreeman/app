@@ -2,6 +2,8 @@ package nerdlab.main;
 
 import android.content.res.Configuration;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -9,9 +11,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guideapplication.R;
@@ -38,6 +43,8 @@ public class DrawerActivity extends FragmentActivity{
 
     private DrawerAdapter drawerAdapter;
 
+
+
     private List<NavDrawerItem> navDrawerItems=new ArrayList<NavDrawerItem>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +57,7 @@ public class DrawerActivity extends FragmentActivity{
         }else {
             Log.d("TEST","NOT NULL");
         }
-
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         actionBar=getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
@@ -81,39 +88,31 @@ public class DrawerActivity extends FragmentActivity{
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-
-        String[] values = new String[]{
-                "One",
-                "Two",
-                "Three"
-        };
-
         initNavItems();
 
         drawerAdapter=new DrawerAdapter(DrawerActivity.this,R.layout.drawer_list_item,navDrawerItems);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
         mDrawerList.setAdapter(drawerAdapter);
-       // mDrawerList.setAdp
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+                if(findViewById(R.id.action_a).getVisibility()==View.VISIBLE){
+                    findViewById(R.id.multiple_actions).performClick();
+                }
                 switch (position) {
                     case 0:
-                        mDrawerToggle.setAnimateEnabled(true);//The animation in the top-left button
-//                        drawerArrow.setProgress(0);
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new Fragment1()).commit();
                         mDrawerLayout.closeDrawer(mDrawerList);
                         break;
                     case 1:
-                        mDrawerToggle.setAnimateEnabled(true);
-//                        drawerArrow.setProgress(1f);
+                        RelativeLayout relativeLayout=(RelativeLayout)mDrawerList.getAdapter().getView(position,null,null);
+                        TextView textView=(TextView)relativeLayout.getChildAt(2);
+                        textView.setTextAppearance(getApplicationContext(), R.style.boldText);
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new Fragment2()).commit();
                         mDrawerLayout.closeDrawer(mDrawerList);
+
                         break;
                     case 2:
-                        mDrawerToggle.setAnimateEnabled(true);
                         mDrawerToggle.syncState();
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new FragmentParent()).commit();
                         mDrawerLayout.closeDrawer(mDrawerList);
@@ -122,31 +121,41 @@ public class DrawerActivity extends FragmentActivity{
 
             }
         });
-
+        //FloatingActionButton actionC = new FloatingActionButton(getApplicationContext());
         final View actionB = findViewById(R.id.action_b);
         final View actionA=findViewById(R.id.action_a);
-        FloatingActionButton actionC = new FloatingActionButton(getBaseContext());
-        actionC.setTitle("new activity");
-        actionC.setColorPressed(R.color.orange);
-        actionC.setColorPressed(R.color.orange_pressed);
-        actionC.setIcon(R.drawable.ic_fab_star);
-        actionC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
-                actionA.setVisibility(actionA.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
-            }
-        });
+//        actionC.setTitle("new activity");
+//        actionC.setColorPressed(R.color.orange);
+//        actionC.setColorPressed(R.color.orange_pressed);
+//        actionC.setIcon(R.drawable.ic_fab_star);
+//        actionC.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+//                actionA.setVisibility(actionA.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+//            }
+//        });
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(DrawerActivity.this,"Post",Toast.LENGTH_SHORT).show();
+                Toast.makeText(DrawerActivity.this, "Post", Toast.LENGTH_SHORT).show();
+                showDialog();
             }
         });
-        ((FloatingActionsMenu) findViewById(R.id.multiple_actions)).addButton(actionC);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.content, new Fragment2()).commit();
+       // ((FloatingActionsMenu) findViewById(R.id.multiple_actions)).addButton(actionC);
     }
 
+    private void showDialog()
+    {
+        DistributeDialogFragment fragment = new DistributeDialogFragment();
+
+        //get the fragmentmanager
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+
+        //create a dialog and show it
+        fragment.show(fm, "dialog");
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -157,6 +166,9 @@ public class DrawerActivity extends FragmentActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+       // if(findViewById(R.id.action_a).getVisibility()==View.VISIBLE){
+            findViewById(R.id.multiple_actions).performClick();
+       // }
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -172,7 +184,6 @@ public class DrawerActivity extends FragmentActivity{
                 mDrawerLayout.openDrawer(mDrawerList);
             }
         }
-
         return super.onOptionsItemSelected(item);
     }
 
