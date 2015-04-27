@@ -32,4 +32,8 @@
     <include layout="@layout/abc_screen_content_include" />
 
 </android.support.v7.internal.widget.FitWindowsLinearLayout>
+<<<<<<< HEAD
 <!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/layout/abc_screen_simple.xml --><!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/layout/abc_screen_simple.xml -->
+=======
+<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/layout/abc_screen_simple.xml --><!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/layout/abc_screen_simple.xml -->
+>>>>>>> f9c3426083e6722fce623069e8a4747107a243c0
