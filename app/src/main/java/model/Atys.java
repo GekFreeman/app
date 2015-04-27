@@ -7,42 +7,42 @@ import base.BaseModel;
  */
 public class Atys extends BaseModel {
 
-    // model columns
+    // model columns ,include user table information
     public final static String COL_ID = "id";
     public final static String COL_USER_NAME = "username";
     public final static String COL_USER_FACE = "userface";
     public final static String COL_TITLE = "title";
     public final static String COL_CONTENT = "content";
-    public final static String COL_COMMENT_ID = "comment_id";
+    public final static String COL_COMMENT_ID = "commentid";
     public final static String COL_PUBTIME = "pubtime";
     public final static String COL_PICTURE = "picture";
-    public final static String COL_JOIN_COUNT = "join_count";
-    public final static String COL_LIKE_COUNT = "like_count";
+    public final static String COL_JOIN_COUNT = "joincount";
+    public final static String COL_LIKE_COUNT = "likecount";
 
     private String id;
     private String username;
     private String userface;
     private String title;
     private String content;
-    private String comment_id;
+    private String commentid;
     private String pubtime;
     private String picture;
-    private String join_count;
-    private String like_count;
+    private String joincount;
+    private String likecount;
 
     public Atys(String id, String username, String userface, String title, String content,
                 String comment_id, String pubtime, String picture,
                 String join_count, String like_count) {
         setId(id);
-        setUser_name(username);
-        setUser_face(userface);
+        setUsername(username);
+        setUserface(userface);
         setTitle(title);
         setContent(content);
-        setComment_id(comment_id);
+        setCommentid(comment_id);
         setPubtime(pubtime);
         setPicture(picture);
-        setJoin_count(join_count);
-        setLike_count(like_count);
+        setJoincount(join_count);
+        setLikecount(like_count);
 
     }
 
@@ -58,18 +58,18 @@ public class Atys extends BaseModel {
         this.id = id;
     }
 
-    public String getUser_name() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUser_name(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
-    public String getUser_face() {
+    public String getUserface() {
         return userface;
     }
 
-    public void setUser_face(String userface) {
+    public void setUserface(String userface) {
         this.userface = userface;
     }
 
@@ -89,12 +89,12 @@ public class Atys extends BaseModel {
         this.content = content;
     }
 
-    public String getComment_id() {
-        return comment_id;
+    public String getCommentid() {
+        return commentid;
     }
 
-    public void setComment_id(String comment_id) {
-        this.comment_id = comment_id;
+    public void setCommentid(String commentid) {
+        this.commentid = commentid;
     }
 
     public String getPubtime() {
@@ -113,19 +113,19 @@ public class Atys extends BaseModel {
         this.picture = picture;
     }
 
-    public String getJoin_count() {
-        return join_count;
+    public String getJoincount() {
+        return joincount;
     }
 
-    public void setJoin_count(String join_count) {
-        this.join_count = join_count;
+    public void setJoincount(String joincount) {
+        this.joincount = joincount;
     }
 
-    public String getLike_count() {
-        return like_count;
+    public String getLikecount() {
+        return likecount;
     }
 
-    public void setLike_count(String like_count) {
-        this.like_count = like_count;
+    public void setLikecount(String likecount) {
+        this.likecount = likecount;
     }
 }
