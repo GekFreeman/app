@@ -31,8 +31,10 @@ import base.BaseTaskPool;
 import base.BaseUi;
 
 import base.C;
+import list.AtysList;
 import model.Atys;
 import nerdlab.main.dummy.DummyContent;
+import sqlite.AtySqlite;
 import ui.UiBlog;
 import ui.UiIndex;
 
@@ -41,13 +43,15 @@ public class AtyListFragment extends BaseListFragment {
 
     private ListView lv;
 
-    private AtyAdapter adapter;
+    private AtysList adapter;
 
     protected BaseTaskPool taskPool;
 
     protected BaseHandlerFrag handler;
 
     private  ArrayList<Atys> atylist;
+
+    private  AtySqlite atySqlite;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -72,14 +76,8 @@ public class AtyListFragment extends BaseListFragment {
         this.taskPool = new BaseTaskPool(this);
         this.handler=new BaseHandlerFrag(this);
 
-//        atylist=new ArrayList<Atys>();
-//
-//        atylist.add(new Atys("id:1", "user_name", "user_face", "title", "content", "comment_id", "pubtime", "picture", "join_count", "like_count"));
-//        atylist.add(new Atys("id:2", "user_name", "user_face", "title", "content", "comment_id", "pubtime", "picture", "join_count", "like_count"));
-//
-//        adapter=new AtyAdapter(this.getActivity(), atylist);//调试ListView
-////
-//        setListAdapter(adapter);
+        this.atySqlite=new AtySqlite(this.getActivity());
+
 
     }
 
@@ -91,13 +89,6 @@ public class AtyListFragment extends BaseListFragment {
         blogParams.put("typeId", "0");
         blogParams.put("pageId", "0");
         this.doTaskAsync(C.task.blogList, C.api.blogList, blogParams);
-//        atylist=new ArrayList<Atys>();
-//
-//        atylist.add(new Atys("id:1", "user_name", "user_face", "title", "content", "comment_id", "pubtime", "picture", "join_count", "like_count"));
-//        atylist.add(new Atys("id:2", "user_name", "user_face", "title", "content", "comment_id", "pubtime", "picture", "join_count", "like_count"));
-//
-//        adapter=new AtyAdapter(this.getActivity(), atylist);//调试ListView
-//        setListAdapter(adapter);
     }
 
     public void sendMessage (int what, int taskId, String data) {
@@ -114,8 +105,6 @@ public class AtyListFragment extends BaseListFragment {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
-
-
     public void onTaskComplete(int taskId, BaseMessage message) {
 
         super.onTaskComplete(taskId, message);
@@ -123,9 +112,14 @@ public class AtyListFragment extends BaseListFragment {
             case C.task.blogList:
                 try {
 //                    @SuppressWarnings("unchecked")
-                    Log.w("onTaskComplete is runn", "onTaskCompleteisrunnning!!");
                     atylist = (ArrayList<Atys>) message.getResultList("Atys");
-                    adapter=new AtyAdapter(getActivity(), atylist);
+                    //load face image
+                    for (Atys atys : atylist) {
+                        loadImage(atys.getUserface());
+                        loadImage(atys.getPicture());
+                        atySqlite.updateAtys(atys);
+                    }
+                    adapter=new AtysList(this, atylist);
                     adapter.notifyDataSetChanged();
 //                    lv= (ListView) getActivity().findViewById(android.R.id.list);
 //                    adapter=new AtyAdapter(getActivity(), atylist);
@@ -139,8 +133,6 @@ public class AtyListFragment extends BaseListFragment {
 //                                    Toast.LENGTH_SHORT).show();
 //                        }
 //                    });
-//                    adapter=new AtyAdapter(this.getActivity(), atylist);
-//                  this.setListAdapter(adapter);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -179,9 +171,6 @@ public class AtyListFragment extends BaseListFragment {
                 "You have selected " ,
                 Toast.LENGTH_SHORT).show();
     }
-
-
-
 
 
 }

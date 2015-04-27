@@ -1,5 +1,6 @@
 package base;
 
+import list.AtysList;
 import nerdlab.main.AtyListFragment;
 import nerdlab.main.BaseListFragment;
 import util.AppUtil;
@@ -57,11 +58,19 @@ public class BaseHandlerFrag extends Handler {
                     result = msg.getData().getString("data");
 //                    list.toast(result);
                     break;
+                 case BaseTask.LOAD_IMAGE:
+
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
 //            list.toast(e.getMessage());
         }
+    }
+
+    public void handleMessage(Message msg, AtysList atysList) {
+          atysList.notifyDataSetChanged();
+
     }
 
 }

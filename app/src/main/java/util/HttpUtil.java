@@ -5,6 +5,12 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
+
+import org.apache.http.HttpHost;
 
 public class HttpUtil {
 	
@@ -12,9 +18,9 @@ public class HttpUtil {
 	static public int NET_INT = 2;
 	static public int WIFI_INT = 3;
 	static public int NONET_INT = 4;
-	
-	static private Uri APN_URI = null;
-	
+
+    static private Uri APN_URI = null;
+
 	static public int getNetType (Context ctx) {
 		// has network
 		ConnectivityManager conn = null;
@@ -33,12 +39,12 @@ public class HttpUtil {
 		}
 		// check use wifi
 		String type = info.getTypeName();
-		if (type.equals("WIFI")) {
+        if (type.equals("WIFI")) {
 			return HttpUtil.WIFI_INT;
 		}
 		// check use wap
 		APN_URI = Uri.parse("content://telephony/carriers/preferapn");
-		Cursor uriCursor = ctx.getContentResolver().query(APN_URI, null, null, null, null);
+		Cursor uriCursor = ctx.getContentResolver().query(APN_URI, new String[] {"apn","proxy","port"}, null, null, null);
 		if (uriCursor != null && uriCursor.moveToFirst()) {
 			String proxy = uriCursor.getString(uriCursor.getColumnIndex("proxy"));
 			String port = uriCursor.getString(uriCursor.getColumnIndex("port"));
@@ -48,7 +54,8 @@ public class HttpUtil {
 				return HttpUtil.WAP_INT;
 			}
 		}
+        // check wap type
 		return HttpUtil.NET_INT;
 	}
-	
+
 }
