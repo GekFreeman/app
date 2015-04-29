@@ -13,8 +13,7 @@ public final class C {
 	
 	public static final class api {
 		// 建议换成你的内网IP的地址
-		public static final String base				= "http://10.30.200.238:8001";
-//		public static final String base				= "http://10.0.2.2:8001";
+		public static final String base				= "http://192.168.1.103:8001";
 		public static final String index			= "/index/index";
 		public static final String login			= "/index/login";
 		public static final String logout			= "/index/logout";
@@ -78,7 +77,7 @@ public final class C {
 	
 	public static final class web {
 		// 建议换成你的内网IP的地址
-		public static final String base				= "http://192.168.0.108:8002";
+		public static final String base				= "http://192.168.1.103:8002";
 //		public static final String base				= "http://10.0.2.2:8002";
 		public static final String index			= base + "/index.php";
 		public static final String gomap			= base + "/gomap.php";

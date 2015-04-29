@@ -32,7 +32,7 @@ public class IOUtil {
 	}
 
 	// Load image from network
-	public static Bitmap getBitmapRemote(Context ctx, String url) {
+	public static Bitmap getBitmapRemote(Context ctx,String url) {
 		URL myFileUrl = null;
 		Bitmap bitmap = null;
 		try {
@@ -44,7 +44,7 @@ public class IOUtil {
 		try {
 			HttpURLConnection conn = null;
 			if (HttpUtil.WAP_INT == HttpUtil.getNetType(ctx)) {
-				Proxy proxy = new Proxy(java.net.Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80)); 
+				Proxy proxy = new Proxy(java.net.Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
 				conn = (HttpURLConnection) myFileUrl.openConnection(proxy);
 			} else {
 				conn = (HttpURLConnection) myFileUrl.openConnection();

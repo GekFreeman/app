@@ -74,9 +74,8 @@ public class SDUtil {
 		}
 		// 保存图片
 		try {
-			String realFileName = C.dir.faces + "/" + fileName;
-			File file = new File(realFileName);
-			file.createNewFile();
+			File file = new File(dir,fileName);
+            file.createNewFile();
 			OutputStream outStream = new FileOutputStream(file);
 			bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
 			outStream.flush();
@@ -85,7 +84,7 @@ public class SDUtil {
 		} catch (FileNotFoundException e) {
 			Log.w(TAG, "FileNotFoundException");
 		} catch (IOException e) {
-			Log.w(TAG, "IOException");
+			Log.d(TAG, e.toString());
 		}
 	}
 
