@@ -116,7 +116,7 @@ public class GuideActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent();
-                intent.setClass(GuideActivity.this, UiLogin.class);
+                intent.setClass(GuideActivity.this, DrawerActivity.class);
                 startActivity(intent);
                 finish();
             }

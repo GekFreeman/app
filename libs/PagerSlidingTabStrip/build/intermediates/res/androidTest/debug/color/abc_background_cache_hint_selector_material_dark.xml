@@ -18,8 +18,4 @@
     <item android:state_accelerated="false" android:color="@color/background_material_dark" />
     <item android:color="@android:color/transparent" />
 </selector>
-<<<<<<< HEAD
-<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/color/abc_background_cache_hint_selector_material_dark.xml --><!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/color/abc_background_cache_hint_selector_material_dark.xml -->
-=======
-<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/color/abc_background_cache_hint_selector_material_dark.xml --><!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/color/abc_background_cache_hint_selector_material_dark.xml -->
->>>>>>> f9c3426083e6722fce623069e8a4747107a243c0
+<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/color/abc_background_cache_hint_selector_material_dark.xml --><!-- From: file:/E:/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/color/abc_background_cache_hint_selector_material_dark.xml -->

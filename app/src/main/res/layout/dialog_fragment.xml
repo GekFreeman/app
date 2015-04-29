@@ -61,6 +61,7 @@
         android:orientation="horizontal" >
 
         <ImageView
+            android:id="@+id/choose_from_album"
             android:layout_width="@dimen/small_icon_width"
             android:layout_height="@dimen/small_icon_height"
             android:layout_gravity="center"
@@ -79,6 +80,7 @@
             android:src="@drawable/at_icon" />
 
         <ImageView
+            android:id="@+id/choose_emoticon_icon"
             android:layout_width="@dimen/small_icon_width"
             android:layout_height="@dimen/small_icon_height"
             android:layout_gravity="center"
@@ -166,7 +168,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="0.96"
-        android:calendarViewShown="false" 
+        android:calendarViewShown="false"
         android:visibility="gone"
         />
 

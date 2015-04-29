@@ -61,15 +61,13 @@ public class DrawerActivity extends FragmentActivity{
 
         handleIntent(getIntent());
         if(savedInstanceState==null){
-            Log.d("TEST", "NULL");
             getSupportFragmentManager().beginTransaction().add(R.id.content, new FragmentParent()).commit();
 
-        }else {
-            Log.d("TEST","NOT NULL");
         }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         actionBar=getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -116,9 +114,6 @@ public class DrawerActivity extends FragmentActivity{
                         mDrawerLayout.closeDrawer(mDrawerList);
                         break;
                     case 1:
-                        RelativeLayout relativeLayout = (RelativeLayout) mDrawerList.getAdapter().getView(position, null, null);
-                        TextView textView = (TextView) relativeLayout.getChildAt(2);
-                        textView.setTextAppearance(getApplicationContext(), R.style.boldText);
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new Fragment2()).commit();
                         mDrawerLayout.closeDrawer(mDrawerList);
 
@@ -138,6 +133,7 @@ public class DrawerActivity extends FragmentActivity{
 
             }
         });
+       // mDrawerList.setSelection(2);
 
         actionMenu=(FloatingActionsMenu)findViewById(R.id.multiple_actions);
 //        FloatingActionsMenu.OnFloatingActionsMenuUpdateListener listener = new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
@@ -166,6 +162,7 @@ public class DrawerActivity extends FragmentActivity{
                 actionMenu.collapse();
             }
         });
+
 //        actionMenu.setOnTouchListener(new View.OnTouchListener() {
 //            @Override
 //            public boolean onTouch(View v, MotionEvent event) {

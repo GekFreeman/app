@@ -72,7 +72,7 @@ public class FirstActivity extends Activity {
                     isFirst=preferences.getBoolean("isFirst",true);
 
                     if(isFirst){
-                        startActivity(new Intent(FirstActivity.this,DrawerActivity.class));
+                        startActivity(new Intent(FirstActivity.this,GuideActivity.class));
                     }
                     else {
                         startActivity(new Intent(FirstActivity.this, DrawerActivity.class));

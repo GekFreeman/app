@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#ff4081">
+    >
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/contentlogin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:keepScreenOn="true"
-        android:gravity="center"
-        android:text="GuidePage04"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:textColor="#fde0dc"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/textView" />
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            >
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:src="@drawable/login_icon"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NCE"
+                android:textSize="@dimen/text_size_xlarge"/>
+        </LinearLayout>
 
+
+
+    </LinearLayout>
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="97dp"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/button"
-        android:layout_below="@id/textView"
-        android:layout_centerHorizontal="true" />
+        android:background="#ffffff"
+        android:layout_below="@+id/contentlogin"
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>

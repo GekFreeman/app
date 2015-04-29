@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-    <!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
-=======
-    <!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
->>>>>>> f9c3426083e6722fce623069e8a4747107a243c0
+    <!-- From: file:/E:/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
@@ -26,17 +22,10 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
-<<<<<<< HEAD
-    <!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/bundles/debug/res/values/values.xml -->
+    <!-- From: file:/E:/app/libs/PagerSlidingTabStrip/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <color name="background_tab_pressed">#6633B5E5</color>
-    <!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
-=======
-    <!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/bundles/debug/res/values/values.xml -->
-    <eat-comment/>
-    <color name="background_tab_pressed">#6633B5E5</color>
-    <!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
->>>>>>> f9c3426083e6722fce623069e8a4747107a243c0
+    <!-- From: file:/E:/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
