@@ -8,11 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="40dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/ivFace"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/icon" />
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:src="@drawable/test"
+            app:border_width="2dp"
+            android:layout_centerVertical="true"
+            app:border_color="#ffffff"/>
 
         <TextView
             android:id="@+id/tvName"
@@ -21,13 +25,28 @@
             android:layout_toRightOf="@id/ivFace"
             android:textSize="18sp"
             android:text="username" />
-
-        <TextView
-            android:id="@+id/tvTime"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/ivFace"
             android:layout_below="@id/tvName"
+            android:src="@drawable/view_icon"
+            android:id="@+id/imageView" />
+        <TextView
+            android:id="@+id/view_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            android:textSize="@dimen/abc_text_size_medium_material"
+            android:layout_below="@+id/tvName"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imageView" />
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:text="publish time" />
     </RelativeLayout>
 
@@ -36,11 +55,15 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/ivPic"
-            android:src="@drawable/icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:src="@drawable/test"
+            app:border_width="2dp"
+            android:layout_centerVertical="true"
+            app:border_color="#ffffff"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

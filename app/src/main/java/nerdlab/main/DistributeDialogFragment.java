@@ -135,17 +135,22 @@ public class DistributeDialogFragment extends DialogFragment
 			@Override
 			public void onClick(View arg0) {
 				hideKeyboard();
-				if (mIsDatePickerAppear)
-				{
+				if (mIsDatePickerAppear) {
 					mDatePicker.setVisibility(View.GONE);
 					mIsDatePickerAppear = false;
-				}
-				else 
-				{
+				} else {
 					mDatePicker.setVisibility(View.VISIBLE);
 					mIsDatePickerAppear = true;
 				}
-				
+
+			}
+		});
+
+		Button publish=(Button)v.findViewById(R.id.publish);
+		publish.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				getDialog().dismiss();
 			}
 		});
 		

@@ -4,7 +4,7 @@
     <color name="tab_choosed">#ecaa0b</color>
     <color name="actionbar_color">#fcca59</color>
     <color name="drawer_arrow_second_color">#e8a25d</color>
-    <color name="drawer_item_pressed">#ffecb3</color>
+    <color name="drawer_item_pressed">#fff8e1</color>
 
     <!-- FloatingButton     -->
     <color name="orange">#fcca59</color>

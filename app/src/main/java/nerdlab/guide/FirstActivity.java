@@ -75,7 +75,7 @@ public class FirstActivity extends Activity {
                         startActivity(new Intent(FirstActivity.this,GuideActivity.class));
                     }
                     else {
-                        startActivity(new Intent(FirstActivity.this, DrawerActivity.class));
+                        startActivity(new Intent(FirstActivity.this, GuideActivity.class));
                     }
 
                     finish();
