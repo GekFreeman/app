@@ -18,8 +18,4 @@
     <item android:state_enabled="false" android:color="@color/primary_text_disabled_material_light"/>
     <item android:color="@color/primary_text_default_material_light"/>
 </selector>
-<<<<<<< HEAD
-<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/color/abc_primary_text_material_light.xml --><!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/color/abc_primary_text_material_light.xml -->
-=======
-<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/color/abc_primary_text_material_light.xml --><!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/color/abc_primary_text_material_light.xml -->
->>>>>>> f9c3426083e6722fce623069e8a4747107a243c0
+<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/lmp-mr1-dev/frameworks/support/v7/appcompat/res/color/abc_primary_text_material_light.xml --><!-- From: file:/E:/app/libs/PagerSlidingTabStrip/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/color/abc_primary_text_material_light.xml -->

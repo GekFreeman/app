@@ -31,11 +31,14 @@ public class DrawerAdapter extends ArrayAdapter<NavDrawerItem>{
 			viewHolder.drawerText=(TextView)view.findViewById(R.id.navDrawerTextView);
 			viewHolder.drawerText.setTextAppearance(getContext(), R.style.normalText);
 			if(position==0){
-				viewHolder.drawerImage.getLayoutParams().height=77;
-				viewHolder.drawerImage.getLayoutParams().width=77;
 				viewHolder.drawerText.setTextAppearance(getContext(),R.style.boldText);
 				TextView textView=(TextView)view.findViewById(R.id.navDrawerProfile);
 				textView.setText("zerowxm@gmail.com");
+
+			}
+			else{
+				viewHolder.drawerImage.getLayoutParams().height=77;
+				viewHolder.drawerImage.getLayoutParams().width=2;
 			}
 
 			view.setTag(viewHolder);

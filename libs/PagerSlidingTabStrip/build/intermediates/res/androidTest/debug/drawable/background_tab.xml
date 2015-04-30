@@ -5,8 +5,4 @@
     <item android:state_focused="true" android:drawable="@color/background_tab_pressed"/>
     <item android:drawable="@android:color/transparent"/>
 
-<<<<<<< HEAD
-</selector><!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/res/drawable/background_tab.xml --><!-- From: file:/E:/Apk/NerdLab/libs/PagerSlidingTabStrip/build/intermediates/bundles/debug/res/drawable/background_tab.xml -->
-=======
-</selector><!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/res/drawable/background_tab.xml --><!-- From: file:/Users/chizhang/Documents/workspace/app/libs/PagerSlidingTabStrip/build/intermediates/bundles/debug/res/drawable/background_tab.xml -->
->>>>>>> f9c3426083e6722fce623069e8a4747107a243c0
+</selector><!-- From: file:/E:/app/libs/PagerSlidingTabStrip/res/drawable/background_tab.xml --><!-- From: file:/E:/app/libs/PagerSlidingTabStrip/build/intermediates/bundles/debug/res/drawable/background_tab.xml -->

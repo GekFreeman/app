@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    
-
-
+    android:layout_height="match_parent"
+    android:background="@drawable/list_selector"
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
-        android:layout_width="7dp"
-        android:layout_height="wrap_content"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
         android:maxHeight="77dp"
         android:maxWidth="77dp"
         app:border_width="2dp"
@@ -46,5 +45,13 @@
             />
     </RelativeLayout>
 
-    
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:duplicateParentState="true"
+        android:background="@drawable/drawer_selector"
+        />
+
 </RelativeLayout>

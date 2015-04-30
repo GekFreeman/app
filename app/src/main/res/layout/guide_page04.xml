@@ -1,27 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#ff4081">
+    >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:keepScreenOn="true"
-        android:gravity="center"
-        android:text="GuidePage04"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:textColor="#fde0dc"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/textView" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <LinearLayout
+        android:id="@+id/contentlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/layoutlogin"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="33dp"
+                android:src="@drawable/login_icon"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NCE"
+                android:textSize="@dimen/text_size_xlarge"/>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="153dp"
+            android:layout_height="57dp"
+            android:background="@color/orange_pressed">
+            <EditText
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back"
+                android:layout_centerInParent="true"
+                android:hint=" user's name"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="153dp"
+            android:layout_height="57dp"
+            android:background="@color/orange">
+            <EditText
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back"
+                android:layout_centerInParent="true"
+                android:hint=" passcode    "/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="153dp"
+        android:layout_height="57dp"
+        android:text="LOG IN"
         android:id="@+id/button"
-        android:layout_below="@id/textView"
-        android:layout_centerHorizontal="true" />
+        android:textSize="@dimen/abc_text_size_large_material"
+        android:background="#ffffff"
+        android:layout_below="@+id/contentlogin"
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>

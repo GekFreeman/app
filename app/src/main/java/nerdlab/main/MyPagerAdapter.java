@@ -16,7 +16,8 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
         }
 
         private void init(){
-            fragments.put(1, new AtyListFragment());
+            fragments.put(0, new AtyListFragment());
+            fragments.put(1, new Fragment1());
             fragments.put(2, new Fragment2());
             fragments.put(3, new Fragment1());
             fragments.put(4, new Fragment2());
